@@ -41,7 +41,7 @@ local InterfaceManager = {}
 
 function InterfaceManager:ImportSettings()
     pcall(function()
-        if not DEBUG and getfenv().isfile and getfenv().readfile and getfenv().isfile("UISettings.ttwizz") and getfenv().readfile("UISettings.ttwizz") then
+        if not DEBUG and getfenv().isfile and getfenv().readfile and getfenv().isfile("UISettings.7eleven") and getfenv().readfile("UISettings.7eleven") then
             for Key, Value in next, HttpService:JSONDecode(getfenv().readfile("UISettings.7eleven")) do
                 UISettings[Key] = Value
             end
@@ -79,7 +79,7 @@ end
 local ImportedConfiguration = {}
 
 pcall(function()
-    if not DEBUG and getfenv().isfile and getfenv().readfile and getfenv().isfile(string.format("%s.7eleven", game.GameId)) and getfenv().readfile(string.format("%s.ttwizz", game.GameId)) and UISettings.AutoImport then
+    if not DEBUG and getfenv().isfile and getfenv().readfile and getfenv().isfile(string.format("%s.7eleven", game.GameId)) and getfenv().readfile(string.format("%s..", game.GameId)) and UISettings.AutoImport then
         ImportedConfiguration = HttpService:JSONDecode(getfenv().readfile(string.format("%s.7eleven", game.GameId)))
         for Key, Value in next, ImportedConfiguration do
             if Key == "FoVColour" or Key == "NameESPOutlineColour" or Key == "ESPColour" then
